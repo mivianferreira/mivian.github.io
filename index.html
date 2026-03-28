@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCPA Validation — Select a Repository</title>
+<style>
+:root {
+  --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+  --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+  --accent: #58a6ff; --green: #3fb950;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; padding: 32px; line-height: 1.5; }
+.container { max-width: 800px; margin: 0 auto; }
+h1 { color: var(--accent); font-size: 24px; margin-bottom: 8px; }
+.subtitle { color: var(--text2); margin-bottom: 32px; }
+.repo-list { display: flex; flex-direction: column; gap: 12px; }
+.repo-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--text); transition: border-color 0.2s; }
+.repo-card:hover { border-color: var(--accent); }
+.repo-card .name { font-size: 16px; font-weight: 600; }
+.repo-card .arrow { color: var(--text2); font-size: 20px; }
+.progress-note { color: var(--text2); font-size: 12px; margin-top: 4px; }
+.export-all { margin-top: 24px; text-align: center; }
+.export-all button { padding: 10px 28px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font-size: 14px; }
+.export-all button:hover { border-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📋 OCPA Propagation Validation</h1>
+  <p class="subtitle">Select a repository to review and validate the change propagation results.</p>
+  <div class="repo-list">
+    <a class="repo-card" href="ocpa_random_0x727_BypassPro.html">
+      <div>
+        <div class="name">0x727/BypassPro</div>
+        <div class="progress-note" id="prog_0x727_BypassPro">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_Netflix_ribbon.html">
+      <div>
+        <div class="name">Netflix/ribbon</div>
+        <div class="progress-note" id="prog_Netflix_ribbon">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_airbnb_lottie-android.html">
+      <div>
+        <div class="name">airbnb/lottie-android</div>
+        <div class="progress-note" id="prog_airbnb_lottie-android">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_alibaba_UltraViewPager.html">
+      <div>
+        <div class="name">alibaba/UltraViewPager</div>
+        <div class="progress-note" id="prog_alibaba_UltraViewPager">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_apache_kylin.html">
+      <div>
+        <div class="name">apache/kylin</div>
+        <div class="progress-note" id="prog_apache_kylin">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_google_cameraview.html">
+      <div>
+        <div class="name">google/cameraview</div>
+        <div class="progress-note" id="prog_google_cameraview">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_google_grafika.html">
+      <div>
+        <div class="name">google/grafika</div>
+        <div class="progress-note" id="prog_google_grafika">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_google_jimfs.html">
+      <div>
+        <div class="name">google/jimfs</div>
+        <div class="progress-note" id="prog_google_jimfs">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_mauricioaniche_ck.html">
+      <div>
+        <div class="name">mauricioaniche/ck</div>
+        <div class="progress-note" id="prog_mauricioaniche_ck">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_mybatis_spring-boot-starter.html">
+      <div>
+        <div class="name">mybatis/spring-boot-starter</div>
+        <div class="progress-note" id="prog_mybatis_spring-boot-starter">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_pf4j_pf4j.html">
+      <div>
+        <div class="name">pf4j/pf4j</div>
+        <div class="progress-note" id="prog_pf4j_pf4j">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="repo-card" href="ocpa_random_wequick_Small.html">
+      <div>
+        <div class="name">wequick/Small</div>
+        <div class="progress-note" id="prog_wequick_Small">Loading progress...</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="export-all">
+    <button onclick="exportAllCSV()">📥 Export ALL validations (CSV)</button>
+  </div>
+</div>
+<script>
+// Show per-repo progress from localStorage
+document.querySelectorAll('.repo-card').forEach(card => {
+  const name = card.querySelector('.name').textContent.replace('/', '_');
+  const prefix = 'ocpa_vote_' + name + '__';
+  let count = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i) && localStorage.key(i).startsWith(prefix)) count++;
+  }
+  const progEl = card.querySelector('.progress-note');
+  if (count > 0) {
+    progEl.textContent = count + ' validations submitted';
+    progEl.style.color = '#3fb950';
+  } else {
+    progEl.textContent = 'No validations yet';
+  }
+});
+
+function exportAllCSV() {
+  const rows = [['Name','Email','Repository','Source_Class','Affected_Class','Rank','Score','CoChange','Distance','Validation','Comment','Timestamp']];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith('ocpa_vote_')) {
+      try {
+        const d = JSON.parse(localStorage.getItem(key));
+        rows.push([
+          d.Name||'', d.Email||'', d.Repository||d.Repositorio||'', d.Source_Class||d.Classe_Fonte||'', d.Affected_Class||d.Classe_Afetada||'',
+          d.Rank||'', d.Score||'', d.CoChange||'', d.Distance||d.Distancia||'',
+          d.Validation||d.Validacao||d.vote||'', d.Comment||d.Comentario||'', d.Timestamp||d.timestamp||'',
+        ]);
+      } catch(e) {}
+    }
+  }
+  const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ocpa_validacoes_todas.csv';
+  a.click();
+}
+</script>
+</body>
+</html>
